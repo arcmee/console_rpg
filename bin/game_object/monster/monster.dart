@@ -1,4 +1,6 @@
 import '../object_base.dart';
+import 'monster_state.dart';
+
 enum ParsedList {
   name,
   healthPoint,
@@ -7,6 +9,8 @@ enum ParsedList {
 }
 
 class Monster extends ObjectBase{
+  
+  late MonsterState state;
 
   Monster();
   Monster.fromList(List<String> parsedList){

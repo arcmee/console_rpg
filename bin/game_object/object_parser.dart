@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'object_base.dart';
 import 'monster/monster.dart';
+import  'character/character.dart';
 
 
 class ObjectParser {
@@ -10,20 +11,33 @@ class ObjectParser {
   final String monsterDataFileName = 'monster_data.txt';
   final String seperateWord = '/';
   ObjectParser();
-  ObjectBase? parseCharacter(){
-    var file = File('lib/data/character_data.txt');
-    file.exists().then((value) => print(value));
-    return null;
+
+
+  // Future<Character>? parseCharacter() async{
+  Future<Character>? parseCharacter() async{
+    String parseString = await getCharacterStrings() ?? "";
+    print(parseString);
+    return Character.fromList(parseString.split(seperateWord));
   }
 
   Future<List<Monster>> parseMonsterList() async {
-    List<String>monsterStrings = [];
-    await getMonsterStrings()?.then((fetched) => monsterStrings = fetched);
+    List<String>? monsterStrings = await getMonsterStrings() ?? [];
     List<Monster> monsters = [];
     for(String str in monsterStrings){
       monsters.add(createMonster(str.split(seperateWord)));
     }
     return monsters;
+  }
+
+  Future<String>? getCharacterStrings(){
+    try{
+      var file = File('lib/data/character_data.txt');
+      return file.readAsString();
+    }
+    catch(e){
+      print(e);
+      FileSystemException();
+    }    
   }
 
   Future<List<String>>? getMonsterStrings(){

@@ -6,6 +6,10 @@ void main(List<String> arguments) async{
   await game.intialize();
   print('init');
 
+  game.character.setCharacterName(stdin.readLineSync()!);
+
+  print(game.character.name);
+
   print('아무 키나 입력하세요 (q 입력 시 종료):');
 
   // stdin을 line 단위가 아닌, byte 단위로 읽어서 즉시 반응하도록 설정

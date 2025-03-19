@@ -1,6 +1,6 @@
 
 class ObjectBase {
-  String name = '';
+  String _name = '';
   int healthPoint = 100;
   int attackDamage = 10;
   int defence = 10;
@@ -16,4 +16,7 @@ class ObjectBase {
   int attack(ObjectBase target){
     return target.attacked(attackDamage);
   }
+
+  set name(String name) => _name = name;
+  String get name => _name;
 }
