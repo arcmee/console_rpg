@@ -15,7 +15,9 @@ class Frenze extends Skill {
     else{
       print('마나가 부족합니다.');
     }
-    effectEnd();
+    effectEnd().listen((val) {
+
+    });
   }
 
   Stream<bool> effectEnd() async* {

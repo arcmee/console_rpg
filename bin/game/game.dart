@@ -13,6 +13,7 @@ import '../game_object/event/skill_event.dart';
 enum Skills {
   convertion,
   heal,
+  frenze,
 }
 
 class Game {
@@ -168,6 +169,9 @@ class Game {
     else if(skill == Skills.convertion){
       eventQueue.add(SkillEvent(character.convertion()));
     }
+    else if(skill == Skills.frenze){
+      eventQueue.add(SkillEvent(character.frenze()));
+    }
   }
 
 
@@ -176,11 +180,12 @@ class Game {
   }
 
   void printSkills(){
-    print('[h] 힐, [v] 컨버젼');
+    print('[h] 힐, [v] 컨버젼 [f] 프랜지');
   }
 
   void saveResult(){
-    if(saved){ print('이미 저장 되었습니다.');
+    if(saved){ 
+      print('이미 저장 되었습니다.');
     }
     else{
       saved = true;

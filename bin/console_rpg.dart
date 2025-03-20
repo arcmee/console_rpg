@@ -45,6 +45,11 @@ void main(List<String> arguments) async {
         game.useSkill(Skills.convertion);
       }
     }
+    if(key == 'f'){
+      if(game.playing && !game.gameCleared){
+        game.useSkill(Skills.frenze);
+      }
+    }
     if(key == 'y'){
       if(game.gameCleared){
         game.saveResult();

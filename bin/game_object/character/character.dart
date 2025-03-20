@@ -80,5 +80,9 @@ class Character extends ObjectBase {
     return Convertion(this);
   }
 
+  Skill frenze(){
+    return Frenze(this);
+  }
+
   
 }
