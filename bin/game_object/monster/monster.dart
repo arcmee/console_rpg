@@ -6,6 +6,7 @@ enum ParsedList {
   healthPoint,
   attackDamage,
   defence,
+  cooltime,
 }
 
 class Monster extends ObjectBase{
@@ -15,9 +16,10 @@ class Monster extends ObjectBase{
   Monster();
   Monster.fromList(List<String> parsedList){
     super.name = parsedList[ParsedList.name.index];
-    super.healthPoint = int.parse(parsedList[ParsedList.healthPoint.index]);
-    super.attackDamage = int.parse(parsedList[ParsedList.attackDamage.index]);
-    super.defence = int.parse(parsedList[ParsedList.defence.index]);
+    super.healthPoint = double.parse(parsedList[ParsedList.healthPoint.index]);
+    super.attackDamage = double.parse(parsedList[ParsedList.attackDamage.index]);
+    super.defence = double.parse(parsedList[ParsedList.defence.index]);
+    super.cooltime = int.parse(parsedList[ParsedList.cooltime.index]);
   }
 
 }

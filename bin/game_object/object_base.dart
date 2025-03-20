@@ -1,20 +1,31 @@
 
+import 'dart:math';
+
 class ObjectBase {
   String _name = '';
-  int healthPoint = 100;
-  int attackDamage = 10;
-  int defence = 10;
+  double healthPoint = 100;
+  double attackDamage = 10;
+  double defence = 10;
+  int cooltime = 1000;
+  double randomGap = 90;
 
-  // ObjectBase(this.name, this.healthPoint, this.attackDamage, this.defence);
   ObjectBase();
 
-  int attacked(int attacked){
+  double attacked(double attacked){
     healthPoint -= attacked;
     return healthPoint;
   }
 
-  int attack(ObjectBase target){
-    return target.attacked(attackDamage);
+  double attack(ObjectBase target){
+    double damage = randomDamage;
+    print('${damage.floor()}의 피해');
+    return target.attacked(damage);
+  }
+
+  void changeState(){}
+  
+  double get randomDamage {
+    return Random().nextDouble()*attackDamage/randomGap*100 + attackDamage;
   }
 
   set name(String name) => _name = name;

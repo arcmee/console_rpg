@@ -1,4 +1,6 @@
+import 'character.dart';
 
 class CharacterState {
-  CharacterState();
+  Character character;
+  CharacterState(this.character);
 }
