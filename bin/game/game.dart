@@ -106,7 +106,7 @@ class Game {
 
   Stream<int> consumeEvent() async* {
     while(playing && !gameCleared){
-      await Future.delayed(Duration(milliseconds: 500));
+      await Future.delayed(Duration(milliseconds: 100));
       while(eventQueue.isNotEmpty){
         eventQueue.first.act();
         checkGameState();

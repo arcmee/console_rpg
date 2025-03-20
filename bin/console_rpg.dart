@@ -18,6 +18,12 @@ void main(List<String> arguments) async {
     String key = String.fromCharCodes(event);
     // 입력된 키를 출력
     print('입력한 키: $key');
+
+        // 'q' 입력 시 종료
+    if (key.trim() == 'q') {
+      print('프로그램 종료...');
+      exit(0);
+    }
     // if(key == 'a'){
     //   game.printMonsters();
     // }
@@ -52,11 +58,7 @@ void main(List<String> arguments) async {
         print('아직 스테이지 클리어 안됐어요');
       }
     }
-    // 'q' 입력 시 종료
-    if (key.trim() == 'q') {
-      print('프로그램 종료...');
-      exit(0);
-    }
+
   });
   
   
